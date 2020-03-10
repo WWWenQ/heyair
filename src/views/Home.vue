@@ -1,18 +1,42 @@
+<!-- 首页中间展示区域 -->
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- banner图片 -->
+    <Banner/>
+    <!-- 商品展示区域 -->
+    <ProductPic :products="products"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Banner from "@/components/Banner"
+import ProductPic from "@/components/ProductPic"
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name:'Home' ,
+  components: {Banner,ProductPic},
+  data () {
+    return {
+      products:[
+          {
+            path:"/heyairivs180ww",
+            url:require('@/assets/img/ivs180ww-main.jpg')
+          },
+          {
+            path:"/heyairivs600wa",
+            url:require('@/assets/img/ivs600wa-main.jpg')
+          }
+      ]
+      }
+    }
+  }
+</script>
+<style scoped>
+ .home{
+   padding-top: 68px;
+ }
+ @media only screen and (max-width: 748px) {
+  .home {
+    padding-top: 48px;
   }
 }
-</script>
+</style>
